@@ -1,8 +1,8 @@
 import React from 'react';
 // import Radium from 'radium';
-//import styled from 'styled-components'
+//import styled from 'styled-components';
 
-import classes from './Person.module.css'
+import classes from './Person.module.css';
 
 const person = (props) => {
     // const style = {

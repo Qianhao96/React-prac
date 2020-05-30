@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
-import logo from './logo.svg';
+import logo from '../logo.svg';
 import './App.css';
-import Person from './Person/Person';
-// import Radium, {StyleRoot} from 'radium';
+import Person from '../components/Persons/Person/Person';
+import Radium, {StyleRoot} from 'radium';
 
 const App = props => {
 
@@ -65,10 +65,10 @@ const App = props => {
     :{ 
       backgroundColor: 'blue',
       ":hover":{
-        backgroundColor:'lightyellow',
+        backgroundColor:'lightblue',
         color: 'green'
       }
-    } ;
+    };
   }
 
   const ShowPersonOrNot = () =>{
@@ -90,7 +90,7 @@ const App = props => {
   }
   
   return (
-    // <StyleRoot>
+     <StyleRoot>
       <div className="App">
         <header className="App-header">
           <img src={logo} className="App-logo" alt="logo" />
@@ -104,7 +104,7 @@ const App = props => {
         
         { ShowPersonOrNot()}
       </div>
-    // </StyleRoot>
+     </StyleRoot>
   );
 }
 
