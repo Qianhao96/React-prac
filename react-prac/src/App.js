@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import logo from './logo.svg';
 import './App.css';
 import Person from './Person/Person';
-import Radium, {StyleRoot} from 'radium';
+// import Radium, {StyleRoot} from 'radium';
 
 const App = props => {
 
@@ -16,7 +16,7 @@ const App = props => {
   });
 
   const [TogglePersonsState, setTogglePersonsState] = useState({
-    doseShow: false
+    doseShow: true
   });
 
   const switchNameHandler = (newName) => {
@@ -90,7 +90,7 @@ const App = props => {
   }
   
   return (
-    <StyleRoot>
+    // <StyleRoot>
       <div className="App">
         <header className="App-header">
           <img src={logo} className="App-logo" alt="logo" />
@@ -104,8 +104,10 @@ const App = props => {
         
         { ShowPersonOrNot()}
       </div>
-    </StyleRoot>
+    // </StyleRoot>
   );
 }
 
-export default Radium(App);
+// export default Radium(App);
+
+export default App;
