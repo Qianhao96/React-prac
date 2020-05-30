@@ -1,0 +1,15 @@
+
+.Blue{
+    background-color: blue;
+}
+@media (max-width: 500px){
+    .Yellow{
+        background-color: yellow;
+    }
+}
+
+@media (max-width: 400px){
+    .Red{
+        background-color: red;
+    }
+}
