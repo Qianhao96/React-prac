@@ -1,8 +1,9 @@
 import React, { useState } from 'react';
 import logo from '../logo.svg';
 import './App.css';
-import Person from '../components/Persons/Person/Person';
-import Radium, {StyleRoot} from 'radium';
+import Persons from '../components/Persons/Persons';
+
+import Cockpit from '../components/Cockpit/Cockpit';
 
 const App = props => {
 
@@ -43,7 +44,7 @@ const App = props => {
   };
 
   const togglePersonsHandler = () =>{
-    setTogglePersonsState({doseShow: !TogglePersonsState.doseShow});
+    setTogglePersonsState({ doseShow: !TogglePersonsState.doseShow});
   };
 
   const deletePersonHandler = (personIndex) =>{
@@ -52,59 +53,29 @@ const App = props => {
     setPersonsState({persons: persons1});
   }
 
-  const switchNameButtonStyle = () =>{
-    return TogglePersonsState.doseShow ?
-    { 
-      backgroundColor: 'red',
-      ":hover":{
-        backgroundColor:'lightyellow',
-        color: 'green',
-        cursor: "pointer"
-      }
-    } 
-    :{ 
-      backgroundColor: 'blue',
-      ":hover":{
-        backgroundColor:'lightblue',
-        color: 'green'
-      }
-    };
-  }
 
   const ShowPersonOrNot = () =>{
-    return TogglePersonsState.doseShow ? 
-      <div>
-        {personsState.persons.map((person, index) => {
-            return <Person click={() => deletePersonHandler(index)} name={person.name} changed = {(event) => nameChangedHandler(event, person.id)}  key={person.id}/>
-        })}
-      </div>
+    return TogglePersonsState.doseShow ?
+      <Persons
+        persons={personsState.persons} 
+        clicked = {deletePersonHandler}
+        changed = {nameChangedHandler} 
+      />
       : null
   }
-  const switchNameButtonClasses = () =>{
-    const classes = [];
-    if(personsState.persons.length <= 2)
-      classes.push("red");
-    if(personsState.persons.length <= 1)
-      classes.push("bold");
-    return classes.join(" ");
-  }
+
   
   return (
-     <StyleRoot>
       <div className="App">
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h1 className={switchNameButtonClasses()}>Welcome to React</h1>
-        </header>
-        <p className="App-intro">
-          To get started, edit <code>src/App.js</code> and save to reload.
-        </p>
-        <button style= {switchNameButtonStyle()} onClick={switchNameHandler.bind(this, "testtttttttttt")}>switch name</button>
-        <button onClick={togglePersonsHandler}>toggle person</button>
+        <Cockpit
+          persons = {personsState.persons}
+          toggleState = {TogglePersonsState.doseShow}
+          switchName = {switchNameHandler}
+          togglePerson={togglePersonsHandler}
+        />
         
         { ShowPersonOrNot()}
       </div>
-     </StyleRoot>
   );
 }
 

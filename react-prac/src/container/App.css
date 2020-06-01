@@ -26,12 +26,3 @@
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }
 }
-
-.red{
-  background-color: red;
-}
-
-
-.bold{
-  font-family: bold;
-}
